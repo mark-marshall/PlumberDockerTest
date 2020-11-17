@@ -1,10 +1,5 @@
 # start from the rocker/r-ver:3.5.0 image
-FROM rocker/r-ver:3.5.0
-
-# install the linux libraries needed for plumber
-RUN apt-get update -qq && apt-get install -y \
-  libssl-dev \
-  libcurl4-gnutls-dev
+FROM trestletech/plumber
 
 # install plumber and openair
 RUN R -e "install.packages(c('plumber','openair'))"
