@@ -1,5 +1,5 @@
 # start from the rocker/r-ver:3.5.0 image
-FROM trestletech/plumber
+FROM rstudio/plumber
 
 # install plumber and openair
 RUN R -e "install.packages(c('openair'))"
