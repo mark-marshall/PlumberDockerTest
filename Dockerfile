@@ -5,10 +5,11 @@ FROM trestletech/plumber
 RUN R -e "install.packages(c('openair'))"
 
 # copy everything from the current directory into the container
-COPY / /
+COPY plumber.R /
 
 # open port 80 to traffic
-EXPOSE 80
+EXPOSE 8000
 
 # when the container starts, start the main.R script
-ENTRYPOINT ["Rscript", "Main.R"]
+ENTRYPOINT ["R", "-e", \
+    "pr <- plumber::plumb('plumber.R'); pr$run(host='0.0.0.0', port=8000)"]
