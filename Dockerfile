@@ -2,7 +2,7 @@
 FROM trestletech/plumber
 
 # install plumber and openair
-RUN R -e "install.packages(c('plumber','openair'))"
+RUN R -e "install.packages(c('openair'))"
 
 # copy everything from the current directory into the container
 COPY / /
