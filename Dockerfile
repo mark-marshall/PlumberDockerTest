@@ -8,8 +8,8 @@ RUN R -e "install.packages(c('openair'))"
 COPY plumber.R /
 
 # open port 80 to traffic
-EXPOSE 8000
+EXPOSE 80
 
 # when the container starts, start the main.R script
 ENTRYPOINT ["R", "-e", \
-    "pr <- plumber::plumb('plumber.R'); pr$run(host='0.0.0.0', port=8000)"]
+    "pr <- plumber::plumb('plumber.R'); pr$run(host='0.0.0.0', port=80)"]
